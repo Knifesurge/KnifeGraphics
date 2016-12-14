@@ -6,7 +6,7 @@ can all be used in KnifeGraphics.
 
 #KnifeColor
 KnifeColor is a custom class that handles any Colors for use with KnifeGraphics. 
-It acts just like Java's Color class (java.awt.Color), just with more Colors and 
+It acts just like Java's Color class (<code>java.awt.Color</code>), just with more Colors and 
 potentially the ability to take more forms of Color values (such as floats, ints, 
 hexadecimal, and binary representations of Colors). 
 
