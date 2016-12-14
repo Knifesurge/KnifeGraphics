@@ -1,0 +1,1 @@
+When value is not initialized to 0 when it is defined, the KnifeColor that comes up is the last preset KnifeColor (blue in this case). When it is, no KnifeColor shows up at all. I'm not entirely sure how to handle this :/
