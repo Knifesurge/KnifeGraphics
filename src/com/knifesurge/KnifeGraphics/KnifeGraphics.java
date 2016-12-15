@@ -32,7 +32,7 @@ public final class KnifeGraphics extends Graphics{
 		if(knifeuu == null)
 			knifeuu = new KnifeGraphics();
 		return knifeuu;
-	}
+		}
 	
 	@Override
 	public void dispose()
@@ -52,7 +52,13 @@ public final class KnifeGraphics extends Graphics{
 	@Override
 	public void drawRect(int x, int y, int width, int height)
 	{
-		
+		GL11.glLoadIdentity();
+		GL11.glBegin(GL11.GL_QUADS);
+			GL11.glVertex2i(x, y);
+			GL11.glVertex2i(x, y + height);
+			GL11.glVertex2i(x + width, y + height);
+			GL11.glVertex2i(x + width, y);
+		GL11.glEnd();
 	}
 	
 	@Override
@@ -60,7 +66,9 @@ public final class KnifeGraphics extends Graphics{
 	{
 		GL11.glLoadIdentity();
 		GL11.glBegin(GL11.GL_LINE_STRIP);
-		
+			GL11.glVertex2i(x1, y1);
+			GL11.glVertex2i(x2, y2);
+		GL11.glEnd();
 	}
 	
 	@Override
@@ -95,12 +103,12 @@ public final class KnifeGraphics extends Graphics{
 	{
 		GL11.glColor3f(KnifeColor.getRed(), KnifeColor.getGreen(), KnifeColor.getBlue());
 	}
-	
-	
-	
-	
-	
-	
+
+
+
+
+
+
 	/* Don't care about these ones below */
 	
 	@Override

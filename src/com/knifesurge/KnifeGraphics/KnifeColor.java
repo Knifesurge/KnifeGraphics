@@ -14,8 +14,23 @@ public class KnifeColor
 	public static int value;
 	/** Float array representation of the current KnifeColor */
 	public static float[] fvalue;
-	/** idek know what this is here for */
+	/** Float array representation of the current KnifeColor.
+	    Used in the constructors to set fvalue
+	 */
 	private static float[] frgbvalue;
+	/** Used to get the current KnifeColor */
+	public static KnifeColor getCurrentColor(int format)
+	{
+		switch(format)
+		{
+			case 0:	//int representation
+				return new KnifeColor(value);
+			case 1:	//float representation
+				return new KnifeColor(fvalue[0], fvalue[1], fvalue[2]);
+			default:
+				return new KnifeColor(0, 0, 0);
+		}
+	}
 	/** Used to make sure the right KnifeColor gets used */
 	public static KnifeColor assignColor(KnifeColor color)
 	{

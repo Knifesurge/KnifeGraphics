@@ -129,9 +129,10 @@ public class Test implements Runnable{
 		GL11.glClear(GL11.GL_COLOR_BUFFER_BIT);
 		
 		KnifeGraphics g = KnifeGraphics.getKnifeuu();
-		g.setColor(KnifeColor.assignColor(KnifeColor.getColor("pink")));
+		g.setColor(KnifeColor.assignColor(KnifeColor.getColor("darkGray")));
 		g.fillRect(0, 0, 100, 100);
-		
+		g.setColor(KnifeColor.assignColor(KnifeColor.getColor("yellow")));
+		g.drawRect(200, 200, 300, 300);
 	}
 
 	public static void main(String[] args)
