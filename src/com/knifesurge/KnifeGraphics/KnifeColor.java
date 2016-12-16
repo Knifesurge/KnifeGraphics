@@ -331,7 +331,36 @@ public class KnifeColor
 	 */
 	public String toString()
 	{
-		return getClass().getName() + "[r="+getRed()+",g="+getGreen()+",b="+getBlue()+".a="+getAlpha()+"]";
+		return getClass().getName() + "[r="+getRed()+",g="+getGreen()+",b="+getBlue()+",a="+getAlpha()+"]";
+	}
+	/** Converts a color in the HSB colormodel to a color in the RGB colormodel
+	 * 
+	 */
+	public static int HSBtoRGB(float hue, float saturation, float brightness)
+	{
+		int r = 0, g = 0, b = 0;
+		if(saturation == 0)
+			r = g = b = (int)(brightness * 255.0f + 0.5f);
+		else
+		{
+			float h = (hue - (float)Math.floor(hue)) * 6.0f;
+			float f = h - (float)java.lang.Math.floor(h);
+			float p = brightness * (1.0f - saturation);
+			float q = brightness * (1.0f - saturation * f);
+			float t = brightness * (1.0f - (saturation * (1.0f - f)));
+			switch((int)h)
+			{
+			case 0:
+				r = (int)(brightness * 255.0f + 0.5f);
+				g = (int)(t * 255.0f + 0.5f);
+				b = (int)(p * 255.0f + 0.5f);
+				break;
+			case 1:
+				r = (int)(p * 255.0f + 0.5f);
+				
+			}
+		}
+		return 0xFF000000 | (r << 16) | (g << 8) | (b << 0);
 	}
 	/**
      * Checks the color integer components supplied for validity.

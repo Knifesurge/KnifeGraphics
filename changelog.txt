@@ -7,3 +7,8 @@ December 15, 2016:
 			- Another constructor to create KnifeColors in a specified ColorSpace
 			- Brighter and Darker methods
 			- toString, equals, and hashcode methods
+
+	FIXED:
+		KnifeGraphics.java:
+			- drawRect() now works. Uses GL_LINE_STRIP 
+instead of GL_QUADS, so only the outline of the Rect is colored

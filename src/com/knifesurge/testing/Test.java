@@ -41,8 +41,8 @@ public class Test implements Runnable{
 	
 	Thread thread = null;
 	
-//	private static final int WIDTH = 1080, HEIGHT = WIDTH / 16 * 9;
-	private static final int WIDTH = 400, HEIGHT = WIDTH / 16 * 9;
+	private static final int WIDTH = 1080, HEIGHT = WIDTH / 16 * 9;
+//	private static final int WIDTH = 400, HEIGHT = WIDTH / 16 * 9;
 	
 	public synchronized void start()
 	{

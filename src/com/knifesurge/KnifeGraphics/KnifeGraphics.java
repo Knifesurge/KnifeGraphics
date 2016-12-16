@@ -53,11 +53,12 @@ public final class KnifeGraphics extends Graphics{
 	public void drawRect(int x, int y, int width, int height)
 	{
 		GL11.glLoadIdentity();
-		GL11.glBegin(GL11.GL_QUADS);
-			GL11.glVertex2i(x, y);
-			GL11.glVertex2i(x, y + height);
-			GL11.glVertex2i(x + width, y + height);
-			GL11.glVertex2i(x + width, y);
+		GL11.glBegin(GL11.GL_LINE_STRIP);
+			GL11.glVertex2i(x, y);	//TOP-LEFT
+			GL11.glVertex2i(x, y + height);	//BOTTOM-LEFT
+			GL11.glVertex2i(x + width, y + height);	//BOTTOM-RIGHT
+			GL11.glVertex2i(x + width, y);	//TOP-RIGHT
+			GL11.glVertex2i(x, y);	//TOP-LEFT (to connect the last point back to the first vertex
 		GL11.glEnd();
 	}
 	
