@@ -32,7 +32,7 @@ public final class KnifeGraphics extends Graphics{
 		if(knifeuu == null)
 			knifeuu = new KnifeGraphics();
 		return knifeuu;
-		}
+	}
 	
 	@Override
 	public void dispose()
@@ -46,7 +46,6 @@ public final class KnifeGraphics extends Graphics{
 		Graphics2D g = (Graphics2D) image.getGraphics();
 		
 		return false;
-		
 	}
 	
 	@Override

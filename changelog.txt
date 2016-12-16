@@ -7,6 +7,8 @@ December 15, 2016:
 			- Another constructor to create KnifeColors in a specified ColorSpace
 			- Brighter and Darker methods
 			- toString, equals, and hashcode methods
+			- Ability to convert to and from HSB (hue, 
+saturation, brightness)
 
 	FIXED:
 		KnifeGraphics.java:
