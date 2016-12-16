@@ -18,6 +18,10 @@ public class KnifeColor
 	    Used in the constructors to set fvalue
 	 */
 	private static float[] frgbvalue;
+	/** Used in brighter and darker algorithms */
+	private static final double FACTOR = 0.7;
+	/** The current ColorSpace */
+	private static java.awt.color.ColorSpace cs;
 	/** Used to get the current KnifeColor */
 	public static KnifeColor getCurrentColor(int format)
 	{
@@ -225,7 +229,74 @@ public class KnifeColor
         frgbvalue[3] = a;
         fvalue = frgbvalue;
     }
-	
+	/** Creates a KnifeColor in the specified ColorSpace with the color components 
+		specified in the float array and the specified alpha. The number 
+		of components is determined by the type of the ColorSpace. For example, 
+		RGB requires 3 components, but CMYK requires 4 components.
+	*/
+	public KnifeColor(java.awt.color.ColorSpace cspace, float components[], float alpha)
+	{
+		boolean rangeError = false;
+		String badComponentString = "";
+		int n = cspace.getNumComponents();
+		fvalue = new float[n];
+		for(int i=0;i<n;i++)
+		{
+			if(components[i] < 0.0 || components[i] > 1.0)
+			{
+				rangeError = true;
+				badComponentString = badComponentString + "Component" + i + " ";
+			} else
+			{
+				fvalue[i] = components[i];
+			}
+		}
+		if (alpha < 0.0 || alpha > 1.0)
+		{
+			rangeError = true;
+			badComponentString = badComponentString + "Alpha";
+		}else
+		{
+			fvalue[3] = alpha;
+		}
+		if(rangeError)
+		{
+			throw new java.lang.IllegalArgumentException(
+				"Color parameter outside of expected range: " +
+				badComponentString);
+		}
+		frgbvalue = cspace.toRGB(fvalue);
+		cs = cspace;
+		value = ((((int)(fvalue[3]*255)) & 0xFF) << 24) |
+			((((int)(fvalue[2]*255)) & 0xFF) << 16) |
+			((((int)(fvalue[1]*255)) & 0xFF) << 8) |
+			((((int)(fvalue[0]*255)) & 0xFF) << 0);
+	}
+	/** Creates a new KnifeColor that is a brighter version of this KnifeColor */
+	public KnifeColor brighter()
+	{
+		int r = getRedi();
+		int g = getGreeni();
+		int b = getBluei();
+
+		/* From 2D group:
+		 * 1. black.brighter() should return gray
+		 * 2. applying brighter to blue will always return blue, brighter
+		 * 3. non pure color (non zero rgb) will eventually return white
+		 */
+		int i = (int)(1.0/(1.0-FACTOR));
+		if ( r == 0 && g == 0 && b == 0)
+		{
+			return new KnifeColor(i, i, i);
+		}
+		if( r > 0 && r < i) r = i;
+		if( g > 0 && g < i) g = i;
+		if( b > 0 && b < i) b = i;
+
+		return new KnifeColor(Math.min((int)(r/FACTOR), 255),
+				      Math.min((int)(g/FACTOR), 255),
+				      Math.min((int)(b/FACTOR), 255));
+	}
 	/**
      * Checks the color integer components supplied for validity.
      * Throws an {@link IllegalArgumentException} if the value is out of

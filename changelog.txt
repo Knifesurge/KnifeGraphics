@@ -1,4 +1,9 @@
 December 13, 2016:
 	TODO:
 		- Fix drawRect(); --Currently draws in full Color, only want outline
+December 15, 2016:
+	ADDED:
+		KnifeColor.java:
+			- Another constructor to create KnifeColors in a specified ColorSpace
+			- Brighter and Darker methods
 		
