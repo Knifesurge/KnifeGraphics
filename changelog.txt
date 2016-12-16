@@ -14,3 +14,10 @@ saturation, brightness)
 		KnifeGraphics.java:
 			- drawRect() now works. Uses GL_LINE_STRIP 
 instead of GL_QUADS, so only the outline of the Rect is colored
+
+December 16, 2016:
+	ADDED:
+		KnifeGraphics.java:
+			- OS detection to start the thread properly and 
+set the screen size properly
+
