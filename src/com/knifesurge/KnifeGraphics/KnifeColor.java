@@ -119,6 +119,11 @@ public class KnifeColor
 	{
 		return ((value >> 24) & 0xFF);
 	}
+	/** Returns the RGB value representing the KnifeColor in the default sRGB ColorModel */
+	public int getRGB()
+	{
+		return value;
+	}
 	/** Returns a KnifeColor based on a String that was passed */
 	public static KnifeColor getColor(String color)
 	{
@@ -296,6 +301,37 @@ public class KnifeColor
 		return new KnifeColor(Math.min((int)(r/FACTOR), 255),
 				      Math.min((int)(g/FACTOR), 255),
 				      Math.min((int)(b/FACTOR), 255));
+	}
+	/** Creates a new KnifeColor that is a darker version of this KnifeColor */
+	public KnifeColor darker()
+	{
+		return new KnifeColor(Math.max((int)(getRed() * FACTOR), 0),
+							  Math.max((int)(getGreen() * FACTOR), 0),
+							  Math.max((int)(getBlue() * FACTOR), 0),
+							  getAlpha());
+	}
+	/** Computes the hash code for this <code>KnifeColor</code>
+	 * @return	a hash code value for this object.
+	 */
+	public int hashcode()
+	{
+		return value;
+	}
+	/** Determines whether or not another object is equal to this <code>KnifeColor</code>
+	 * @param	obj	the object to test for equality with this <code>KnifeColor</code>
+	 * @return	<code>true</code> if the objects are the same; <code>false</code> otherwise
+	 */
+	public boolean equals(Object obj)
+	{
+		return obj instanceof KnifeColor && ((KnifeColor)obj).getRGB() == this.getRGB();
+	}
+	/** Returns a string representation of this <code>KnifeColor</code>. Intended for 
+	 *  debugging purposes only.
+	 *  @return	a string representation of this <code>KnifeColor</code>
+	 */
+	public String toString()
+	{
+		return getClass().getName() + "[r="+getRed()+",g="+getGreen()+",b="+getBlue()+".a="+getAlpha()+"]";
 	}
 	/**
      * Checks the color integer components supplied for validity.
