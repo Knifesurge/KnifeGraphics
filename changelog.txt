@@ -6,4 +6,4 @@ December 15, 2016:
 		KnifeColor.java:
 			- Another constructor to create KnifeColors in a specified ColorSpace
 			- Brighter and Darker methods
-		
+			- toString, equals, and hashcode methods
