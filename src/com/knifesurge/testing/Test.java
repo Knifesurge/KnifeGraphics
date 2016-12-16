@@ -41,7 +41,11 @@ public class Test implements Runnable{
 	
 	Thread thread = null;
 	
-	private static final int WIDTH = 1080, HEIGHT = WIDTH / 16 * 9;
+	private static int WIDTH, HEIGHT;
+	
+	private static String osName = null;
+	
+	
 //	private static final int WIDTH = 400, HEIGHT = WIDTH / 16 * 9;
 	
 	public synchronized void start()
@@ -49,11 +53,20 @@ public class Test implements Runnable{
 		if(running) return;
 		running = true;
 		thread = new Thread(this, "TESTING_THREAD");
-		String osName = System.getProperty("os.name");
-        if (osName.contains("Mac"))
+        if (getOSName().contains("Mac"))
         	thread.run();
-        else
+        else if (getOSName().contains("Windows"))
+        {
+        	WIDTH = 1080;
+        	HEIGHT = WIDTH / 16 * 9;
         	thread.start();
+        }
+        else
+        {
+        	WIDTH = 400;
+        	HEIGHT = WIDTH / 16 * 9;
+        	thread.start();
+        }
 		System.out.println("Starting tests...");
 	}
 	
@@ -63,6 +76,13 @@ public class Test implements Runnable{
 		running = false;
 		try { thread.join();} catch (Exception e) {e.printStackTrace();}
 		System.out.println("Stopping tests...");
+	}
+	
+	private static String getOSName()
+	{
+		if(osName == null)
+			osName = System.getProperty("os.name");
+		return osName;
 	}
 	
 	private void init()
