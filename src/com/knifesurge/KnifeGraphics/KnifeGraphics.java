@@ -92,7 +92,7 @@ public final class KnifeGraphics extends Graphics{
 	@Override
 	public void setColor(Color color)
 	{
-		throw new RuntimeException("Not used.");
+		throw new RuntimeException("Use KnifeColor version instead.");
 	}
 	
 	public void setColor(float r, float g, float b)
