@@ -1,5 +1,9 @@
 #KnifeGraphics
-KnifeGraphics acts as a wrapper class for LWJGL's OpenGL. It allows users to 
+<a 
+href="https://github.com/Knifesurge/KnifeGraphics/blob/master/src/com/knifesurge/KnifeGraphics/KnifeGraphics.java">KnifeGraphics</a> 
+acts 
+as a wrapper class for 
+LWJGL's OpenGL. It allows users to 
 draw with LWJGL3 just as they would with Java's native Graphics objects. Methods 
 such as <code>setColor()</code>, <code>fillRect()</code>, and <code>drawImage()</code> 
 can all be used in KnifeGraphics.
