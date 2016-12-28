@@ -21,6 +21,8 @@ import static org.lwjgl.opengl.GL11.GL_FALSE;
 import static org.lwjgl.opengl.GL11.glClearColor;
 import static org.lwjgl.system.MemoryUtil.NULL;
 
+import java.awt.BasicStroke;
+import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 
@@ -32,7 +34,6 @@ import org.lwjgl.glfw.GLFWVidMode;
 import org.lwjgl.opengl.GL;
 import org.lwjgl.opengl.GL11;
 
-import com.knifesurge.KnifeGraphics.KnifeColor;
 import com.knifesurge.KnifeGraphics.KnifeGraphics;
 
 public class Test implements Runnable{
@@ -149,10 +150,22 @@ public class Test implements Runnable{
 		GL11.glClear(GL11.GL_COLOR_BUFFER_BIT);
 		
 		KnifeGraphics g = KnifeGraphics.getKnifeuu();
-		g.setColor(KnifeColor.assignColor(KnifeColor.getColor("darkGray")));
-		g.fillRect(0, 0, 100, 100);
-		g.setColor(KnifeColor.assignColor(KnifeColor.getColor("yellow")));
-		g.drawRect(200, 200, 300, 300);
+		
+		BufferedImage image = new BufferedImage(128, 128, BufferedImage.TYPE_INT_ARGB);
+		
+		Graphics2D g2 = (Graphics2D) image.createGraphics();
+		
+		g2.setColor(new Color(1.0f ,1.0f, 1.0f, 0.5f));
+		g2.fillRect(0, 0, 1080, 720);
+		g2.setStroke(new BasicStroke(3));
+		g2.setColor(Color.red);
+		g2.drawRect(0, 0, 127, 127);
+		g2.setStroke(new BasicStroke(1));
+		g2.fillRect(10, 10, 10, 10);
+		g2.setColor(Color.blue);
+		g2.drawString("Test image", 10, 64);
+		g.drawImage(image, 100, 100, null);
+		
 	}
 
 	public static void main(String[] args)

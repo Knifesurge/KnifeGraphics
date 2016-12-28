@@ -21,3 +21,7 @@ December 16, 2016:
 			- OS detection to start the thread properly and 
 set the screen size properly
 
+December 27, 2016:
+	ADDED:
+		KnifeGraphics.java:
+			- Completed drawImage();
