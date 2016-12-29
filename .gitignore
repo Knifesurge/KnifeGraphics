@@ -1,1 +1,5 @@
 /bin/
+/lwjgl/
+/jar/
+*.sh
+*.TODO
