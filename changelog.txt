@@ -25,3 +25,8 @@ December 27, 2016:
 	ADDED:
 		KnifeGraphics.java:
 			- Completed drawImage();
+
+December 28, 2016:
+	ADDED:
+		KnifeDisplay.java
+			- GLFW display that KnifeGraphics depends on (since LWJGL and OpenGL depend on GLFW as of current LWJGL release)

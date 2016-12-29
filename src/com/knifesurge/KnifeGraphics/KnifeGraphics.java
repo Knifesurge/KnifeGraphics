@@ -182,7 +182,7 @@ public final class KnifeGraphics extends Graphics{
 	@Override
 	public void setColor(Color color)
 	{
-		throw new RuntimeException("Use KnifeColor version instead.");
+		this.setColor(new KnifeColor(color.getRed(), color.getBlue(), color.getGreen(), color.getAlpha()));
 	}
 	
 	public void setColor(float r, float g, float b)

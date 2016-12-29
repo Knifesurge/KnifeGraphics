@@ -22,7 +22,11 @@ public class KnifeColor
 	private static final double FACTOR = 0.7;
 	/** The current ColorSpace */
 	private static java.awt.color.ColorSpace cs;
-	/** Used to get the current KnifeColor */
+	/** Used to get the current KnifeColor<br><br>
+	 *	0 - 	Integer representation<br>
+	 *	1 - 	Float representation<br><br>
+	 *	Defaults to black (<code>KnifeColor(0, 0, 0)</code>)
+	 */
 	public static KnifeColor getCurrentColor(int format)
 	{
 		switch(format)
@@ -39,14 +43,14 @@ public class KnifeColor
 	public static KnifeColor assignColor(KnifeColor color)
 	{
 		int r, g, b, a;
-		fvalue[3] = color.getAlpha();
-		a = color.getAlphai();
-		fvalue[2] = color.getBlue();
-		b = color.getBluei();
-		fvalue[1] = color.getGreen();
-		g = color.getGreeni();
-		fvalue[0] = color.getRed();
-		r = color.getRedi();
+		fvalue[3] = KnifeColor.getAlpha();
+		a = KnifeColor.getAlphai();
+		fvalue[2] = KnifeColor.getBlue();
+		b = KnifeColor.getBluei();
+		fvalue[1] = KnifeColor.getGreen();
+		g = KnifeColor.getGreeni();
+		fvalue[0] = KnifeColor.getRed();
+		r = KnifeColor.getRedi();
 		System.out.println("r:"+r+", g:"+g+", b:"+b+", a:"+a);
 		System.out.println("0:"+fvalue[0]+", 1:"+fvalue[1]+", 2:"+fvalue[2]+", 3:"+fvalue[3]);
 		if(checkvalue())
