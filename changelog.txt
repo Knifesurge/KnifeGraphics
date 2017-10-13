@@ -7,19 +7,16 @@ December 15, 2016:
 			- Another constructor to create KnifeColors in a specified ColorSpace
 			- Brighter and Darker methods
 			- toString, equals, and hashcode methods
-			- Ability to convert to and from HSB (hue, 
-saturation, brightness)
+			- Ability to convert to and from HSB (hue, saturation, brightness)
 
 	FIXED:
 		KnifeGraphics.java:
-			- drawRect() now works. Uses GL_LINE_STRIP 
-instead of GL_QUADS, so only the outline of the Rect is colored
+			- drawRect() now works. Uses GL_LINE_STRIP instead of GL_QUADS, so only the outline of the Rect is colored
 
 December 16, 2016:
 	ADDED:
 		KnifeGraphics.java:
-			- OS detection to start the thread properly and 
-set the screen size properly
+			- OS detection to start the thread properly and set the screen size properly
 
 December 27, 2016:
 	ADDED:
@@ -30,3 +27,7 @@ December 28, 2016:
 	ADDED:
 		KnifeDisplay.java
 			- GLFW display that KnifeGraphics depends on (since LWJGL and OpenGL depend on GLFW as of current LWJGL release)
+			
+October 13, 2017:
+	UPDATE:
+		- I will be reopening this repository for active development for the next couple months. Expect an update no less than once a week.
